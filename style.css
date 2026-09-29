@@ -3,7 +3,7 @@
    ======================================== */
 
 /* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('css2');
 
 /* ── Design Tokens ── */
 :root {
@@ -320,6 +320,14 @@ body::after {
   transition: filter 0.35s ease;
 }
 
+.btn-icon svg.privacy-icon {
+  fill: none;
+}
+
+.btn-icon svg.privacy-icon path {
+  fill: url(#privacy-gradient);
+}
+
 .btn:hover .btn-icon svg {
   filter: drop-shadow(0 0 4px var(--neon-red-soft));
 }
@@ -370,7 +378,8 @@ body::after {
   margin-left: 4px;
 }
 
-/* ── Zap Button — Checkout emphasis ── */
+/* ── Privacy & Zap Button ── */
+.btn--privacy,
 .btn--zap {
   border-color: var(--border-vip);
   box-shadow:
@@ -383,6 +392,7 @@ body::after {
   );
 }
 
+.btn--privacy:hover,
 .btn--zap:hover {
   border-color: var(--neon-red);
   box-shadow:
@@ -396,12 +406,14 @@ body::after {
   );
 }
 
+.btn--privacy .btn-icon svg,
 .btn--zap .btn-icon svg {
   filter: drop-shadow(0 0 3px var(--neon-red-glow));
 }
 
+.btn--privacy:hover .btn-icon svg,
 .btn--zap:hover .btn-icon svg {
-  filter: drop-shadow(0 0 6px var(--neon-red-soft));
+  filter: drop-shadow(0 0 6px rgba(255, 100, 30, 0.7));
 }
 
 /* ── Keyframes ── */
