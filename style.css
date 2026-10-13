@@ -3,7 +3,7 @@
    ======================================== */
 
 /* Google Font */
-@import url('css2');
+@import url('css2-1');
 
 /* ── Design Tokens ── */
 :root {
@@ -378,42 +378,49 @@ body::after {
   margin-left: 4px;
 }
 
-/* ── Privacy & Zap Button ── */
-.btn--privacy,
+/* ── Zap Button ── */
 .btn--zap {
-  border-color: var(--border-vip);
+  border-color: rgba(37, 211, 102, 0.4);
   box-shadow:
-    0 0 12px var(--neon-red-glow),
-    0 0 25px rgba(255, 0, 60, 0.05);
+    0 0 12px rgba(37, 211, 102, 0.12),
+    0 0 25px rgba(37, 211, 102, 0.05);
   background: linear-gradient(
     135deg,
-    rgba(255, 0, 60, 0.03) 0%,
+    rgba(37, 211, 102, 0.04) 0%,
     var(--bg-button) 100%
   );
 }
 
-.btn--privacy:hover,
-.btn--zap:hover {
-  border-color: var(--neon-red);
-  box-shadow:
-    0 0 25px var(--neon-red-soft),
-    0 0 50px rgba(255, 0, 60, 0.1),
-    inset 0 0 25px rgba(255, 0, 60, 0.05);
+.btn--zap::before {
   background: linear-gradient(
-    135deg,
-    rgba(255, 0, 60, 0.08) 0%,
-    rgba(255, 0, 60, 0.02) 100%
+    90deg,
+    transparent 0%,
+    rgba(37, 211, 102, 0.06) 50%,
+    transparent 100%
   );
 }
 
-.btn--privacy .btn-icon svg,
-.btn--zap .btn-icon svg {
-  filter: drop-shadow(0 0 3px var(--neon-red-glow));
+.btn--zap:hover {
+  border-color: #25D366;
+  box-shadow:
+    0 0 25px rgba(37, 211, 102, 0.35),
+    0 0 50px rgba(37, 211, 102, 0.1),
+    inset 0 0 25px rgba(37, 211, 102, 0.05);
+  background: linear-gradient(
+    135deg,
+    rgba(37, 211, 102, 0.08) 0%,
+    rgba(37, 211, 102, 0.02) 100%
+  );
 }
 
-.btn--privacy:hover .btn-icon svg,
+.btn--zap .btn-icon svg,
+.btn-icon svg.zap-icon {
+  fill: #25D366;
+  filter: drop-shadow(0 0 4px rgba(37, 211, 102, 0.45));
+}
+
 .btn--zap:hover .btn-icon svg {
-  filter: drop-shadow(0 0 6px rgba(255, 100, 30, 0.7));
+  filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.85));
 }
 
 /* ── Keyframes ── */

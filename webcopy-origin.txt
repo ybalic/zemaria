@@ -1,30 +1,14 @@
-Uri: https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap
-File Name: C:\Downloaded Web Sites\www.zemariafans.site\css2
-Content Type: text/css
-
-Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf
-File Name: C:\Downloaded Web Sites\www.zemariafans.site\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuFuYMZg.ttf
-Content Type: font/ttf
-
-Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf
-File Name: C:\Downloaded Web Sites\www.zemariafans.site\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuGKYMZg.ttf
-Content Type: font/ttf
-
-Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf
-File Name: C:\Downloaded Web Sites\www.zemariafans.site\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuI6fMZg.ttf
-Content Type: font/ttf
-
-Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf
-File Name: C:\Downloaded Web Sites\www.zemariafans.site\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfMZg.ttf
-Content Type: font/ttf
-
-Uri: https://fonts.gstatic.com/s/inter/v20/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfMZg.ttf
-File Name: C:\Downloaded Web Sites\www.zemariafans.site\s\inter\v20\UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuOKfMZg.ttf
-Content Type: font/ttf
-
 Uri: https://www.zemariafans.site/
 File Name: C:\Downloaded Web Sites\www.zemariafans.site\index.htm
 Content Type: text/html
+
+Uri: https://www.zemariafans.site/css2
+File Name: C:\Downloaded Web Sites\www.zemariafans.site\css2-1
+Content Type: application/octet-stream
+
+Uri: https://www.zemariafans.site/css2?family=Inter:wght@300;400;500;600;700&display=swap
+File Name: C:\Downloaded Web Sites\www.zemariafans.site\css2
+Content Type: application/octet-stream
 
 Uri: https://www.zemariafans.site/profile.jpeg
 File Name: C:\Downloaded Web Sites\www.zemariafans.site\profile.jpeg
