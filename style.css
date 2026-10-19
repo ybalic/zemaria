@@ -3,7 +3,7 @@
    ======================================== */
 
 /* Google Font */
-@import url('css2-1');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 /* ── Design Tokens ── */
 :root {
@@ -21,6 +21,9 @@
   --border-subtle: rgba(255, 0, 60, 0.2);
   --border-button: rgba(255, 0, 60, 0.4);
   --border-vip: rgba(255, 0, 60, 0.6);
+  --neon-purple: #a855f7;
+  --neon-purple-soft: rgba(168, 85, 247, 0.4);
+  --neon-purple-glow: rgba(168, 85, 247, 0.15);
   --radius-full: 50%;
   --radius-lg: 14px;
   --max-width: 420px;
@@ -378,49 +381,54 @@ body::after {
   margin-left: 4px;
 }
 
-/* ── Zap Button ── */
-.btn--zap {
-  border-color: rgba(37, 211, 102, 0.4);
+/* ── Purple Button (Não tem Telegram ?) ── */
+.btn--zap,
+.btn--purple {
+  border-color: rgba(168, 85, 247, 0.4);
   box-shadow:
-    0 0 12px rgba(37, 211, 102, 0.12),
-    0 0 25px rgba(37, 211, 102, 0.05);
+    0 0 12px rgba(168, 85, 247, 0.15),
+    0 0 25px rgba(168, 85, 247, 0.05);
   background: linear-gradient(
     135deg,
-    rgba(37, 211, 102, 0.04) 0%,
+    rgba(168, 85, 247, 0.04) 0%,
     var(--bg-button) 100%
   );
 }
 
-.btn--zap::before {
+.btn--zap::before,
+.btn--purple::before {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(37, 211, 102, 0.06) 50%,
+    rgba(168, 85, 247, 0.08) 50%,
     transparent 100%
   );
 }
 
-.btn--zap:hover {
-  border-color: #25D366;
+.btn--zap:hover,
+.btn--purple:hover {
+  border-color: #a855f7;
   box-shadow:
-    0 0 25px rgba(37, 211, 102, 0.35),
-    0 0 50px rgba(37, 211, 102, 0.1),
-    inset 0 0 25px rgba(37, 211, 102, 0.05);
+    0 0 25px rgba(168, 85, 247, 0.4),
+    0 0 50px rgba(168, 85, 247, 0.15),
+    inset 0 0 25px rgba(168, 85, 247, 0.05);
   background: linear-gradient(
     135deg,
-    rgba(37, 211, 102, 0.08) 0%,
-    rgba(37, 211, 102, 0.02) 100%
+    rgba(168, 85, 247, 0.08) 0%,
+    rgba(168, 85, 247, 0.02) 100%
   );
 }
 
 .btn--zap .btn-icon svg,
+.btn--purple .btn-icon svg,
 .btn-icon svg.zap-icon {
-  fill: #25D366;
-  filter: drop-shadow(0 0 4px rgba(37, 211, 102, 0.45));
+  fill: #a855f7;
+  filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.5));
 }
 
-.btn--zap:hover .btn-icon svg {
-  filter: drop-shadow(0 0 8px rgba(37, 211, 102, 0.85));
+.btn--zap:hover .btn-icon svg,
+.btn--purple:hover .btn-icon svg {
+  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.9));
 }
 
 /* ── Keyframes ── */
