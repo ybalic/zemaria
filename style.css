@@ -1,32 +1,32 @@
 /* ========================================
-   PRESSEL — Dark + Red Neon Premium
+   PRESSEL — Dark + Red Neon VIP Redirect
    ======================================== */
 
 /* Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 /* ── Design Tokens ── */
 :root {
   --bg-primary: #050505;
   --bg-secondary: #0a0a0a;
-  --bg-card: #0d0d0d;
+  --bg-card: rgba(13, 13, 13, 0.85);
+  --bg-card-border: rgba(255, 0, 60, 0.22);
   --bg-button: #0c0c0c;
   --neon-red: #FF003C;
-  --neon-red-soft: rgba(255, 0, 60, 0.35);
-  --neon-red-glow: rgba(255, 0, 60, 0.15);
-  --neon-red-subtle: rgba(255, 0, 60, 0.06);
-  --text-primary: #f0f0f0;
-  --text-secondary: #888888;
-  --text-muted: #555555;
+  --neon-red-bright: #ff2a55;
+  --neon-red-soft: rgba(255, 0, 60, 0.4);
+  --neon-red-glow: rgba(255, 0, 60, 0.18);
+  --neon-red-subtle: rgba(255, 0, 60, 0.08);
+  --text-primary: #f5f5f5;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
   --border-subtle: rgba(255, 0, 60, 0.2);
-  --border-button: rgba(255, 0, 60, 0.4);
-  --border-vip: rgba(255, 0, 60, 0.6);
-  --neon-purple: #a855f7;
-  --neon-purple-soft: rgba(168, 85, 247, 0.4);
-  --neon-purple-glow: rgba(168, 85, 247, 0.15);
+  --border-button: rgba(255, 0, 60, 0.45);
+  --border-vip: rgba(255, 0, 60, 0.65);
   --radius-full: 50%;
   --radius-lg: 14px;
-  --max-width: 420px;
+  --radius-xl: 18px;
+  --max-width: 440px;
 }
 
 /* ── Reset ── */
@@ -55,17 +55,18 @@ body {
   align-items: center;
   overflow-x: hidden;
   position: relative;
+  padding: 20px 16px;
 }
 
 /* ── Ambient background glow ── */
 body::before {
   content: '';
   position: fixed;
-  top: -30%;
+  top: -20%;
   left: 50%;
   transform: translateX(-50%);
-  width: 600px;
-  height: 600px;
+  width: 650px;
+  height: 650px;
   background: radial-gradient(circle, var(--neon-red-subtle) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
@@ -77,67 +78,98 @@ body::after {
   bottom: -20%;
   left: 50%;
   transform: translateX(-50%);
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(255, 0, 60, 0.03) 0%, transparent 70%);
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(255, 0, 60, 0.04) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
 
 /* ── Container ── */
 .container {
-  width: 90%;
+  width: 100%;
   max-width: var(--max-width);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 60px 0 80px;
   position: relative;
   z-index: 1;
 }
 
-/* ── Profile Photo ── */
+/* ── Profile with Orbit Loader ── */
 .profile-wrapper {
   position: relative;
-  margin-bottom: 24px;
-  opacity: 0;
-  animation: fadeIn 0.8s ease-out 0.2s forwards;
+  margin-bottom: 20px;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.loader-orbit {
+  position: absolute;
+  inset: -8px;
+  border-radius: var(--radius-full);
+  border: 3px solid transparent;
+  border-top-color: var(--neon-red);
+  border-right-color: rgba(255, 0, 60, 0.35);
+  animation: spin 1.2s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
+  z-index: 2;
+  box-shadow: 0 0 15px rgba(255, 0, 60, 0.2);
 }
 
 .profile-glow {
   position: absolute;
-  inset: -8px;
+  inset: -12px;
   border-radius: var(--radius-full);
-  background: radial-gradient(circle, var(--neon-red-glow) 0%, transparent 70%);
-  filter: blur(12px);
+  background: radial-gradient(circle, var(--neon-red-glow) 0%, transparent 75%);
+  filter: blur(14px);
   z-index: 0;
-  animation: pulseGlow 4s ease-in-out infinite;
+  animation: pulseGlow 2.5s ease-in-out infinite;
 }
 
 .profile-photo {
-  width: 130px;
-  height: 130px;
+  width: 120px;
+  height: 120px;
   border-radius: var(--radius-full);
   object-fit: cover;
   border: 2px solid var(--neon-red);
   position: relative;
   z-index: 1;
   box-shadow:
-    0 0 15px var(--neon-red-glow),
-    0 0 30px rgba(255, 0, 60, 0.08);
+    0 0 18px var(--neon-red-glow),
+    0 0 35px rgba(255, 0, 60, 0.1);
 }
 
-/* ── Username ── */
+.status-badge-vip {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background: linear-gradient(135deg, #FF003C 0%, #b8002b 100%);
+  color: #ffffff;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  box-shadow: 0 0 12px var(--neon-red-soft);
+  z-index: 4;
+  border: 2px solid var(--bg-primary);
+  text-transform: uppercase;
+}
+
+/* ── Username Section ── */
 .username-section {
   text-align: center;
-  margin-bottom: 48px;
-  opacity: 0;
-  animation: fadeIn 0.8s ease-out 0.4s forwards;
+  margin-bottom: 24px;
+  animation: fadeIn 0.6s ease-out 0.15s backwards;
 }
 
 .username {
   font-size: 1.25rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.5px;
   color: var(--text-primary);
   display: inline-flex;
@@ -164,7 +196,7 @@ body::after {
   align-items: center;
   justify-content: center;
   gap: 7px;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
 .status-dot-wrapper {
@@ -197,11 +229,320 @@ body::after {
 }
 
 .status-text {
-  font-size: 0.78rem;
-  font-weight: 500;
+  font-size: 0.75rem;
+  font-weight: 600;
   color: #00ff88;
   letter-spacing: 1.5px;
   text-transform: uppercase;
+}
+
+/* ── Loading Card ── */
+.loading-card {
+  width: 100%;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--bg-card-border);
+  border-radius: var(--radius-xl);
+  padding: 24px 22px;
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.7),
+    0 0 25px rgba(255, 0, 60, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  margin-bottom: 20px;
+  animation: slideUp 0.6s ease-out 0.25s backwards;
+}
+
+.loading-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.loading-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--text-primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.loading-title::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--neon-red);
+  box-shadow: 0 0 8px var(--neon-red);
+}
+
+.loading-percentage {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--neon-red);
+  letter-spacing: 1px;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 10px var(--neon-red-soft);
+}
+
+/* Progress Bar */
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 0, 60, 0.25);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(90deg, #FF003C 0%, #ff2a55 50%, #ff5277 100%);
+  border-radius: 10px;
+  box-shadow:
+    0 0 14px var(--neon-red),
+    0 0 28px rgba(255, 0, 60, 0.5);
+  position: relative;
+  transition: width 0.08s linear;
+}
+
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: shimmer 1s infinite linear;
+}
+
+/* Status Step Message */
+.status-message-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 24px;
+  margin-bottom: 8px;
+}
+
+.status-spinner-small {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+  border: 2px solid rgba(255, 0, 60, 0.2);
+  border-top-color: var(--neon-red);
+  animation: spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+
+.status-message {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.3px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.countdown-note {
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.countdown-note strong {
+  color: var(--neon-red);
+  font-weight: 700;
+}
+
+/* ── Action Section & VIP Button ── */
+.action-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  animation: slideUp 0.6s ease-out 0.4s backwards;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+  padding: 18px 24px;
+  border-radius: var(--radius-lg);
+  background: var(--bg-button);
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1px solid var(--border-vip);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 0 16px var(--neon-red-glow),
+    0 0 30px rgba(255, 0, 60, 0.08);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 60, 0.08) 0%,
+    var(--bg-button) 100%
+  );
+  transition:
+    box-shadow 0.35s ease,
+    border-color 0.35s ease,
+    transform 0.25s ease,
+    background 0.35s ease;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 0, 60, 0.12) 50%,
+    transparent 100%
+  );
+  transition: left 0.5s ease;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  border-color: var(--neon-red);
+  box-shadow:
+    0 0 28px var(--neon-red-soft),
+    0 0 55px rgba(255, 0, 60, 0.15),
+    inset 0 0 25px rgba(255, 0, 60, 0.06);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 0, 60, 0.14) 0%,
+    rgba(255, 0, 60, 0.04) 100%
+  );
+  transform: translateY(-2px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-icon svg {
+  width: 20px;
+  height: 20px;
+  fill: var(--neon-red);
+  filter: drop-shadow(0 0 4px var(--neon-red-soft));
+  transition: filter 0.35s ease;
+}
+
+.btn:hover .btn-icon svg {
+  filter: drop-shadow(0 0 8px var(--neon-red));
+}
+
+.fallback-text {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+/* ── Footer ── */
+.footer {
+  margin-top: 36px;
+  text-align: center;
+  animation: fadeIn 0.8s ease-out 0.6s backwards;
+}
+
+.footer-text {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+/* ── Keyframe Animations ── */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
 }
 
 @keyframes pingGreen {
@@ -222,277 +563,28 @@ body::after {
   }
 }
 
-/* ── Buttons ── */
-.buttons-group {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  width: 100%;
-  padding: 18px 24px;
-  border-radius: var(--radius-lg);
-  background: var(--bg-button);
-  color: var(--text-primary);
-  text-decoration: none;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  border: 1px solid var(--border-button);
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition:
-    box-shadow 0.35s ease,
-    border-color 0.35s ease,
-    transform 0.25s ease,
-    background 0.35s ease;
-  /* Entry animation */
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.btn:nth-child(1) {
-  animation: slideUp 0.6s ease-out 0.6s forwards;
-}
-
-.btn:nth-child(2) {
-  animation: slideUp 0.6s ease-out 0.75s forwards;
-}
-
-.btn:nth-child(3) {
-  animation: slideUp 0.6s ease-out 0.9s forwards;
-}
-
-/* Shimmer overlay */
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 0, 60, 0.04) 50%,
-    transparent 100%
-  );
-  transition: left 0.5s ease;
-}
-
-.btn:hover::before {
-  left: 100%;
-}
-
-.btn:hover {
-  border-color: var(--neon-red);
-  box-shadow:
-    0 0 20px var(--neon-red-glow),
-    0 0 40px rgba(255, 0, 60, 0.06),
-    inset 0 0 20px rgba(255, 0, 60, 0.03);
-  transform: translateY(-2px);
-  background: rgba(255, 0, 60, 0.04);
-}
-
-.btn:active {
-  transform: translateY(0);
-  transition: transform 0.1s ease;
-}
-
-/* Telegram icon */
-.btn-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-}
-
-.btn-icon svg {
-  width: 20px;
-  height: 20px;
-  fill: var(--neon-red);
-  transition: filter 0.35s ease;
-}
-
-.btn-icon svg.privacy-icon {
-  fill: none;
-}
-
-.btn-icon svg.privacy-icon path {
-  fill: url(#privacy-gradient);
-}
-
-.btn:hover .btn-icon svg {
-  filter: drop-shadow(0 0 4px var(--neon-red-soft));
-}
-
-/* ── VIP Button — Extra emphasis ── */
-.btn--vip {
-  border-color: var(--border-vip);
-  box-shadow:
-    0 0 12px var(--neon-red-glow),
-    0 0 25px rgba(255, 0, 60, 0.05);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 0, 60, 0.03) 0%,
-    var(--bg-button) 100%
-  );
-}
-
-.btn--vip:hover {
-  border-color: var(--neon-red);
-  box-shadow:
-    0 0 25px var(--neon-red-soft),
-    0 0 50px rgba(255, 0, 60, 0.1),
-    inset 0 0 25px rgba(255, 0, 60, 0.05);
-  background: linear-gradient(
-    135deg,
-    rgba(255, 0, 60, 0.08) 0%,
-    rgba(255, 0, 60, 0.02) 100%
-  );
-}
-
-.btn--vip .btn-icon svg {
-  filter: drop-shadow(0 0 3px var(--neon-red-glow));
-}
-
-.btn--vip:hover .btn-icon svg {
-  filter: drop-shadow(0 0 6px var(--neon-red-soft));
-}
-
-/* ── VIP label accent ── */
-.vip-label {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--neon-red);
-  background: rgba(255, 0, 60, 0.1);
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-left: 4px;
-}
-
-/* ── Purple Button (Não tem Telegram ?) ── */
-.btn--zap,
-.btn--purple {
-  border-color: rgba(168, 85, 247, 0.4);
-  box-shadow:
-    0 0 12px rgba(168, 85, 247, 0.15),
-    0 0 25px rgba(168, 85, 247, 0.05);
-  background: linear-gradient(
-    135deg,
-    rgba(168, 85, 247, 0.04) 0%,
-    var(--bg-button) 100%
-  );
-}
-
-.btn--zap::before,
-.btn--purple::before {
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(168, 85, 247, 0.08) 50%,
-    transparent 100%
-  );
-}
-
-.btn--zap:hover,
-.btn--purple:hover {
-  border-color: #a855f7;
-  box-shadow:
-    0 0 25px rgba(168, 85, 247, 0.4),
-    0 0 50px rgba(168, 85, 247, 0.15),
-    inset 0 0 25px rgba(168, 85, 247, 0.05);
-  background: linear-gradient(
-    135deg,
-    rgba(168, 85, 247, 0.08) 0%,
-    rgba(168, 85, 247, 0.02) 100%
-  );
-}
-
-.btn--zap .btn-icon svg,
-.btn--purple .btn-icon svg,
-.btn-icon svg.zap-icon {
-  fill: #a855f7;
-  filter: drop-shadow(0 0 4px rgba(168, 85, 247, 0.5));
-}
-
-.btn--zap:hover .btn-icon svg,
-.btn--purple:hover .btn-icon svg {
-  filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.9));
-}
-
-/* ── Keyframes ── */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-}
-
-/* ── Footer ── */
-.footer {
-  margin-top: 60px;
-  opacity: 0;
-  animation: fadeIn 0.8s ease-out 1s forwards;
-}
-
-.footer-text {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
 /* ── Responsiveness ── */
 @media (max-width: 480px) {
   .container {
-    width: 88%;
-    padding: 50px 0 60px;
+    padding: 20px 0;
   }
 
-  .profile-photo {
+  .profile-wrapper {
     width: 115px;
     height: 115px;
   }
 
+  .profile-photo {
+    width: 105px;
+    height: 105px;
+  }
+
   .username {
     font-size: 1.15rem;
+  }
+
+  .loading-card {
+    padding: 20px 16px;
   }
 
   .btn {
@@ -503,17 +595,23 @@ body::after {
 }
 
 @media (min-width: 768px) {
-  .container {
-    padding: 100px 0;
-  }
-
-  .profile-photo {
+  .profile-wrapper {
     width: 140px;
     height: 140px;
   }
 
+  .profile-photo {
+    width: 130px;
+    height: 130px;
+  }
+
+  .loading-card {
+    padding: 28px 26px;
+  }
+
   .btn {
     padding: 20px 28px;
+    font-size: 0.92rem;
   }
 }
 
